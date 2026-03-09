@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white">
+
+      <div class="nav mb-10 ">
+        <a class="text-blue-500" href="/">Back To Home</a>
+      
+    </div>
+      <h1 class="text-3xl tracking-tighter mb-3">All Users</h1>
+
+      <!-- Main container for all users -->
+      <div class="user flex gap-6 flex-wrap">
+        
+        <%
+        if(users.length > 0){%>
+          <% users.forEach(function(user){%>
+            <div class="w-72 p-4 bg-zinc-800 rounded-lg">
+              <!-- Box -->
+              <div class="w-full h-52 rounded-lg bg-zinc-700">
+                <img src="<%=user.image%>" alt="">
+              </div>
+    
+              <!-- User Details -->
+              <h3 class="text-xl mt-3 tracking-tighter"><%=user.name%></h3>
+              <h3 class="text-md text-zinc-400"><%=user.email%></h3>
+    
+              <!-- Action Buttons -->
+              <div class="flex gap-3 mt-5">
+                <a class="text-zinc-500 hover:text-white" href="/edit">Edit User</a>
+                <a class="text-red-500 hover:text-red-400" href="/delete/<%=user.id%>">Delete User</a>
+              </div>
+            </div>
+    
+    
+          <% }) %>
+       <% }
+            else{ %>
+              <h3 class='text-md text-zinc-400'>No users yet</h3>
+         <%   }
+
+
+
+        %>
+
+
+
+      
+     
+      </div>
+    </div>
+  </body>
+</html>

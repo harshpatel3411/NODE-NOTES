@@ -1,0 +1,3 @@
+Questions:-
+1.Double logs 
+2.url uncoded{true}
